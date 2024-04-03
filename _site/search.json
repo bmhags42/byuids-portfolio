@@ -83,9 +83,9 @@
   {
     "objectID": "Projects/project1.html",
     "href": "Projects/project1.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - What’s in a name?",
     "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
+    "text": "Show the code\nimport pandas as pd\nimport numpy as np\nimport plotly.express as px",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -94,30 +94,46 @@
   {
     "objectID": "Projects/project1.html#elevator-pitch",
     "href": "Projects/project1.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks"
+    "title": "Client Report - What’s in a name?",
+    "section": "Elevator pitch",
+    "text": "Elevator pitch\nA common trend from all four questions is a peak usage before the 2000’s and a steady decrease till the present day. This could be caused by many different factors, I believe it is due to an increase in variety of names.\n\n\nShow the code\n# Read data set from file\ndf = pd.read_csv(\"C:/Users/bmhag/Downloads/names_year.csv\")\n# df.shape",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   },
   {
     "objectID": "Projects/project1.html#questiontask-1",
     "href": "Projects/project1.html#questiontask-1",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - What’s in a name?",
     "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n\n                                                \nMy useless chart\n\n\n\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\nNot much of a table \n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0"
+    "text": "QUESTION|TASK 1\nHow does your name at your birth year compare to its use historically?\nMy name is on the decline in usage. It began gaining popularity in the late 1960’s. The name ‘Brandon’ had the highest usage in the year 1994 with a usage of 25,736. I was born in the year 2001 and the usage that year was 16,757. Brandon as a name is down to a usage of 5,075 in the year 2015.\n\n\nShow the code\n# Filter only people with my name, Brandon\nmy_name = df.query('name == \"Brandon\"')\n# my_name\n\n\n\n\nShow the code\n# Graph for question 1. My name and usage at my birth year to historically\nfig_1 = px.line(my_name, x='year', y='Total', title='Usage of the Name Brandon')\n# Add a vertical annotation at my birth year, 2001\nfig_1.add_vline(x=2001, annotation_text=\"My Birth Year: 2001\", annotation_position='top left')\nfig_1.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   },
   {
     "objectID": "Projects/project1.html#questiontask-2",
     "href": "Projects/project1.html#questiontask-2",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - What’s in a name?",
     "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n\n                                                \nMy useless chart\n\n\n\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\nNot much of a table \n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0"
+    "text": "QUESTION|TASK 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nThe highest usage of the name Brittany was in the year 1990. Most of the data falls between 1985 and 1995. If I were to talk to someone named Brittany, I would guess that they were around 35 years old.\n\n\nShow the code\n# Filter only people named Brittany\nbrittany_name = df.query('name == \"Brittany\"')\n# brittany_name\n\n\n\n\nShow the code\n# Graph for question 2. People named Brittany\nfig_2 = px.line(brittany_name, x='year', y='Total')\nfig_2.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   },
   {
     "objectID": "Projects/project1.html#questiontask-3",
     "href": "Projects/project1.html#questiontask-3",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - What’s in a name?",
     "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nCOPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n\n                                                \nMy useless chart\n\n\n\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\nNot much of a table \n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0"
+    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nThese four names were used commonly in the early 1900’s. Each name, except for Mary, had an increase in usage till 1955. Mary had a decrease in usage till 1936 and increased till the 1950’s. After this time, all four names decreased in usage till the present day.\n\n\nShow the code\n# Filter out Mary, Martha, Peter, Paul\nchristian_names = df.query('name in [\"Mary\", \"Martha\", \"Peter\", \"Paul\"]')\n# Filter out years between 1920 - 2000\nchristian_names = christian_names.query('year &gt;= 1920 & year &lt;= 2000')\n# christian_names\n\n\n\n\nShow the code\n# Graph for question 3. Christian names from 1920 to 2000\nfig_3 = px.line(christian_names, x='year', y='Total', color='name')\nfig_3.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   },
   {
     "objectID": "Projects/project4.html",
@@ -231,9 +247,9 @@
   {
     "objectID": "Projects/project5.html",
     "href": "Projects/project5.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - The War with Star Wars",
     "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
+    "text": "Star Wars is a very influencial movie franchise. There are lots of differing opinions on the movies. There is also a big disagreement on the classic “Who Shot First” question. The data and graphs below provide insights on these differing opinions.\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 5"
@@ -242,30 +258,46 @@
   {
     "objectID": "Projects/project5.html#elevator-pitch",
     "href": "Projects/project5.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - The War with Star Wars",
     "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks"
+    "text": "Star Wars is a very influencial movie franchise. There are lots of differing opinions on the movies. There is also a big disagreement on the classic “Who Shot First” question. The data and graphs below provide insights on these differing opinions.\nHighlight the Questions and Tasks",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
   },
   {
     "objectID": "Projects/project5.html#questiontask-1",
     "href": "Projects/project5.html#questiontask-1",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - The War with Star Wars",
     "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n\n                                                \nMy useless chart\n\n\n\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\nNot much of a table \n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0"
+    "text": "QUESTION|TASK 1\nShorten the column names and clean them up for easier use with pandas. Provide a table or list that exemplifies how you fixed the names.\n\n\nRename Columns\n# Renaming Columns\nsw_data = sw_data.rename(columns={'Have you seen any of the 6 films in the Star Wars franchise?': 'seenAnyMovie', \n                        'Do you consider yourself to be a fan of the Star Wars film franchise?' : 'isFan',\n                        'Which of the following Star Wars films have you seen? Please select all that apply.' : 'hasSeen1',\n                        'Unnamed: 4' : 'hasSeen2',\n                        'Unnamed: 5' : 'hasSeen3',\n                        'Unnamed: 6' : 'hasSeen4',\n                        'Unnamed: 7' : 'hasSeen5',\n                        'Unnamed: 8' : 'hasSeen6',\n                        'Please rank the Star Wars films in order of preference with 1 being your favorite film in the franchise and 6 being your least favorite film.' : 'rankEp1',\n                        'Unnamed: 10' : 'rankEp2',\n                        'Unnamed: 11' : 'rankEp3',\n                        'Unnamed: 12' : 'rankEp4',\n                        'Unnamed: 13' : 'rankEp5',\n                        'Unnamed: 14' : 'rankEp6',\n                        'Please state whether you view the following characters favorably, unfavorably, or are unfamiliar with him/her.' : 'viewOnHanSolo',\n                        'Unnamed: 16' : 'veiwOnLukeSkywalker',\n                        'Unnamed: 17' : 'veiwOnPrincessLeiaOrgana',\n                        'Unnamed: 18' : 'veiwOnAnakinSkywalker',\n                        'Unnamed: 19' : 'veiwOnObiWanKenobi',\n                        'Unnamed: 20' : 'veiwOnEmperorPalpatine',\n                        'Unnamed: 21' : 'veiwOnDarthVader',\n                        'Unnamed: 22' : 'veiwOnLandoCalrissian',\n                        'Unnamed: 23' : 'veiwOnBobaFett',\n                        'Unnamed: 24' : 'veiwOnC-3P0',\n                        'Unnamed: 25' : 'veiwOnR2D2',\n                        'Unnamed: 26' : 'veiwOnJarJarBinks',\n                        'Unnamed: 27' : 'veiwOnPadmeAmidala',\n                        'Unnamed: 28' : 'veiwOnYoda',\n                        'Which character shot first?' : 'whoShotFirst',\n                        'Are you familiar with the Expanded Universe?' : 'knowExpandedUniverse',\n                        'Do you consider yourself to be a fan of the Expanded Universe?æ' : 'fanExpandedUniverse',\n                        'Do you consider yourself to be a fan of the Star Trek franchise?' : 'starTrekFan',\n                        })\n\n\nI have a very similar method for renaming a lot of the colums. I shortened with the main 2-3 key words. On movies seen I shortened to episode number instead of title.",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
   },
   {
     "objectID": "Projects/project5.html#questiontask-2",
     "href": "Projects/project5.html#questiontask-2",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - The War with Star Wars",
     "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n\n                                                \nMy useless chart\n\n\n\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\nNot much of a table \n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0"
+    "text": "QUESTION|TASK 2\nClean and format the data so that it can be used in a machine learning model. As you format the data, you should complete each item listed below. In your final report provide example(s) of the reformatted data with a short description of the changes made.\nI remapped each of the value ranges to basic integers. These integers basically represent each value range group. I also handled NaN as the 0 group.\n::: {#cell-Cleaned Data .cell execution_count=3}\n\nCleaned and Reformatted Data\n# Filter out people who have seen at least 1 movie\nclean_data = sw_data.query('seenAnyMovie == \"Yes\"')\n# filtered_data.head()\n\n# Remove row with labels\nclean_data = clean_data.drop(clean_data.index[0])\n# clean_data.head()\n\n# Create a new column 'ageGroup' with age ranges converted into a single value\nvalue_map = {np.nan: 0, '18-29': 1, '30-44': 2, '45-60': 3, '&gt; 60': 4}\nclean_data['ageGroup'] = clean_data.apply(lambda x: value_map[x['Age']], axis=1)\n\n# Remove the Age column, because it is being replaced with single values in newAge\nclean_data = clean_data.drop('Age', axis=1)\nclean_data.head()\n\n# Create a column 'educationGroup' with education labels being changed to a single value\neducation_map = {np.nan: 0, 'Less than high school degree': 1, 'High school degree': 2, 'Some college or Associate degree': 3, 'Bachelor degree': 4, 'Graduate degree': 5}\nclean_data['educationGroup'] = clean_data.apply(lambda x: education_map[x['Education']], axis=1)\n\n# Remove the Education column as it is being replaced with single values in educationValue\nclean_data = clean_data.drop('Education', axis=1)\nclean_data.head()\n\n# Create a column 'incomeGroup' with income labels being changed to a single value\nincome_map = {np.nan: 0, '$0 - $24,999': 1, '$25,000 - $49,999': 2, '$50,000 - $99,999': 3, '$100,000 - $149,999': 4, '$150,000+': 5}\nclean_data['incomeGroup'] = clean_data.apply(lambda x: income_map[x['Household Income']], axis=1)\n\n# Remove Household Income column\nclean_data = clean_data.drop('Household Income', axis=1)\n\n# Create target column\nclean_data['target'] = clean_data.apply(lambda x: 1 if(x['incomeGroup'] &gt;= 2) else 0, axis=1)\n# clean_data.head()\n# clean_data.shape\n\nclean_data.head()\n\n\n\n\n\n\n\n\n\nRespondentID\nseenAnyMovie\nisFan\nhasSeen1\nhasSeen2\nhasSeen3\nhasSeen4\nhasSeen5\nhasSeen6\nrankEp1\n...\nwhoShotFirst\nknowExpandedUniverse\nfanExpandedUniverse\nstarTrekFan\nGender\nLocation (Census Region)\nageGroup\neducationGroup\nincomeGroup\ntarget\n\n\n\n\n3\n3.292765e+09\nYes\nNo\nStar Wars: Episode I The Phantom Menace\nStar Wars: Episode II Attack of the Clones\nStar Wars: Episode III Revenge of the Sith\nNaN\nNaN\nNaN\n1\n...\nI don't understand this question\nNo\nNaN\nNo\nMale\nWest North Central\n1\n2\n1\n0\n\n\n4\n3.292763e+09\nYes\nYes\nStar Wars: Episode I The Phantom Menace\nStar Wars: Episode II Attack of the Clones\nStar Wars: Episode III Revenge of the Sith\nStar Wars: Episode IV A New Hope\nStar Wars: Episode V The Empire Strikes Back\nStar Wars: Episode VI Return of the Jedi\n5\n...\nI don't understand this question\nNo\nNaN\nYes\nMale\nWest North Central\n1\n3\n4\n1\n\n\n5\n3.292731e+09\nYes\nYes\nStar Wars: Episode I The Phantom Menace\nStar Wars: Episode II Attack of the Clones\nStar Wars: Episode III Revenge of the Sith\nStar Wars: Episode IV A New Hope\nStar Wars: Episode V The Empire Strikes Back\nStar Wars: Episode VI Return of the Jedi\n5\n...\nGreedo\nYes\nNo\nNo\nMale\nWest North Central\n1\n3\n4\n1\n\n\n6\n3.292719e+09\nYes\nYes\nStar Wars: Episode I The Phantom Menace\nStar Wars: Episode II Attack of the Clones\nStar Wars: Episode III Revenge of the Sith\nStar Wars: Episode IV A New Hope\nStar Wars: Episode V The Empire Strikes Back\nStar Wars: Episode VI Return of the Jedi\n1\n...\nHan\nYes\nNo\nYes\nMale\nMiddle Atlantic\n1\n4\n2\n1\n\n\n7\n3.292685e+09\nYes\nYes\nStar Wars: Episode I The Phantom Menace\nStar Wars: Episode II Attack of the Clones\nStar Wars: Episode III Revenge of the Sith\nStar Wars: Episode IV A New Hope\nStar Wars: Episode V The Empire Strikes Back\nStar Wars: Episode VI Return of the Jedi\n6\n...\nHan\nYes\nNo\nNo\nMale\nEast North Central\n1\n2\n0\n0\n\n\n\n\n5 rows × 39 columns\n\n\n:::\n::: {#cell-One Hot Encode Data .cell execution_count=4}\n\nShow the code\n# One Hot Encode Data\ndata_ohe = pd.get_dummies(clean_data)\ndata_ohe = data_ohe.drop('RespondentID', axis=1)\ndata_ohe\n\n\n\n\n\n\n\n\n\nageGroup\neducationGroup\nincomeGroup\ntarget\nseenAnyMovie_Yes\nisFan_No\nisFan_Yes\nhasSeen1_Star Wars: Episode I The Phantom Menace\nhasSeen2_Star Wars: Episode II Attack of the Clones\nhasSeen3_Star Wars: Episode III Revenge of the Sith\n...\nGender_Male\nLocation (Census Region)_East North Central\nLocation (Census Region)_East South Central\nLocation (Census Region)_Middle Atlantic\nLocation (Census Region)_Mountain\nLocation (Census Region)_New England\nLocation (Census Region)_Pacific\nLocation (Census Region)_South Atlantic\nLocation (Census Region)_West North Central\nLocation (Census Region)_West South Central\n\n\n\n\n3\n1\n2\n1\n0\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\n...\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nTrue\nFalse\n\n\n4\n1\n3\n4\n1\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nTrue\nFalse\n\n\n5\n1\n3\n4\n1\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nTrue\nFalse\n\n\n6\n1\n4\n2\n1\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nTrue\nFalse\nFalse\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n7\n1\n2\n0\n0\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nTrue\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n1181\n3\n3\n1\n0\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nTrue\nFalse\nFalse\nFalse\n\n\n1182\n1\n3\n1\n0\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nFalse\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n1183\n2\n4\n3\n1\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nFalse\nFalse\nFalse\nFalse\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n1185\n3\n3\n4\n1\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\n...\nFalse\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n1186\n4\n5\n3\n1\nTrue\nTrue\nFalse\nTrue\nTrue\nFalse\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nTrue\nFalse\nFalse\nFalse\n\n\n\n\n935 rows × 153 columns\n\n\n:::",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
   },
   {
     "objectID": "Projects/project5.html#questiontask-3",
     "href": "Projects/project5.html#questiontask-3",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - The War with Star Wars",
     "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nCOPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n\n                                                \nMy useless chart\n\n\n\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\nNot much of a table \n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0"
+    "text": "QUESTION|TASK 3\nValidate that the data provided on GitHub lines up with the article by recreating 2 of the visuals from the article.\n\n\nRead and format data\n# Include and execute your code here\n\nhasSeenMoviesPercent = [round(clean_data['hasSeen1'].count() / 835, 2), \n                        round(clean_data['hasSeen2'].count() / 835, 2), \n                        round(clean_data['hasSeen3'].count() / 835, 2), \n                        round(clean_data['hasSeen4'].count() / 835, 2), \n                        round(clean_data['hasSeen5'].count() / 835, 2), \n                        round(clean_data['hasSeen6'].count() / 835, 2)]\n# print(clean_data['hasSeen1'].count())\n# print(hasSeenMoviesPercent)\n\n\n\n\nplot example\nfig_1 = px.bar(x=hasSeenMoviesPercent,\n               y=['Star Wars: Episode I The Phantom Menace', 'Star Wars: Episode II Attack of the Clone', 'Star Wars: Episode III Revenge of the Sith', \n                  'Star Wars: Episode IV A New Hope', 'Star Wars: Episode V The Empire Strikes Back',   'Star Wars: Episode VI Return of the Jedi'],\n                  text=hasSeenMoviesPercent,\n               color_discrete_sequence=['blue'], \n               title=\"Which 'Star Wars' Movies Have You Seen?&lt;br&gt;&lt;sup&gt;Of 835 respondents who have seen any film&lt;/sup&gt;\",\n               )\nfig_1.update_traces(textposition='outside')\nfig_1.update_yaxes(autorange='reversed')\nfig_1.show()\n\n\n                                                \n\n\n\n\ntable example\nhanShotFirst = [round(data_ohe['whoShotFirst_Han'].sum() / 834, 2), round(data_ohe['whoShotFirst_Greedo'].sum() / 834, 2), round(data_ohe['whoShotFirst_I don\\'t understand this question'].sum() / 834, 2)]\n\nfig_2 = px.bar(x=hanShotFirst, \n               y=['Han', 'Greedo', 'I dont understand this question'],\n               title=\"Who Shot First&lt;br&gt;&lt;sup&gt;Of 834 respondents who have seen any film&lt;/sup&gt;\",\n               text=hanShotFirst)\nfig_2.update_traces(textposition='outside')\nfig_2.update_yaxes(autorange='reversed')\n\nfig_2.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
   },
   {
     "objectID": "Projects/project2.html",
@@ -381,5 +413,27 @@
     "title": "Brandon Hagerman’s Resume",
     "section": "",
     "text": "Fall 2022 Cloud Solution Society Member\n2019-2020 Missionary, Dallas, Texas"
+  },
+  {
+    "objectID": "Projects/project5.html#questiontask-4",
+    "href": "Projects/project5.html#questiontask-4",
+    "title": "Client Report - The War with Star Wars",
+    "section": "QUESTION|TASK 4",
+    "text": "QUESTION|TASK 4\nBuild a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.\nI chose to use a Decision Tree Classifier. The Model has an average accuracy score of 65%. This is very low and not a good predictor. This is due to the lack of data. The variables are also not related very much to income\n\n\nShow the code\n# Get features for Model\nfeatures = data_ohe.columns\n# Remove target column from features\nfeatures = features.drop('target')\nfeatures = features.drop('incomeGroup')\n\n# print('target' in features)\n# print('ageGroup' in features)\n# print(features)\n\nX = data_ohe[features]\ny = data_ohe['target']\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)\n\n# Initialize the decision tree\ndecision_tree = tree.DecisionTreeClassifier()\n\n# Train the model to the training data\ndecision_tree = decision_tree.fit(X_train, y_train)\n\ny_pred = decision_tree.predict(X_test)\n\n# Check the model accuracy\nprint(metrics.accuracy_score(y_test, y_pred))\n\n# Check the Mean Squared Error test of the model. Lower score is better. \nprint(mean_squared_error(y_test, y_pred))\n\n\n0.6068376068376068\n0.39316239316239315",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#questiontask-4",
+    "href": "Projects/project1.html#questiontask-4",
+    "title": "Client Report - What’s in a name?",
+    "section": "QUESTION|TASK 4",
+    "text": "QUESTION|TASK 4\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe name ‘Marty’ had a peak usage in the year 1962. Following that, the usage decreased greatly consistantly until the year 1985. There was an increase in usage for a few years following the release of Back to the Future. After the small increase, it steadily decreased in use till the present day.\n\n\nShow the code\n# Marty McFly from Back to the Future\n# First movie release date 1985\n# Second movie release date 1989\n# Third movie release date 1990\nmarty_name = df.query('name == \"Marty\"')\n# marty_name\n\n\n\n\nShow the code\n# Graph for question 4. Usage of the name Marty around the release of the movies 'Back to the Future'\nfig_4 = px.line(marty_name, x='year', y='Total')\n# Vertical Line for First Movie, 1985\nfig_4.add_vline(x=1985, annotation_text=\"First Movie Release\", annotation_position='top left')\n# Vertical Line for Final Movie, 1990\nfig_4.add_vline(x=1990, annotation_text=\"Final Movie Release\", annotation_position='top right')",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   }
 ]
