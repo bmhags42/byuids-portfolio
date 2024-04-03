@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - What's in a name?"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Brandon Hagerman"
 format:
   html:
     self-contained: true
@@ -25,4 +25,100 @@ execute:
     
 ---
 
-### Paste in a template
+```{python}
+import pandas as pd
+import numpy as np
+import plotly.express as px
+```
+
+## Elevator pitch
+A common trend from all four questions is a peak usage before the 2000's and a steady decrease till the present day. This could be caused by many different factors, I believe it is due to an increase in variety of names. 
+
+```{python}
+# Read data set from file
+df = pd.read_csv("C:/Users/bmhag/Downloads/names_year.csv")
+# df.shape
+```
+
+## QUESTION|TASK 1
+
+__How does your name at your birth year compare to its use historically?__
+
+My name is on the decline in usage. It began gaining popularity in the late 1960's. The name 'Brandon' had the highest usage in the year 1994 with a usage of 25,736. I was born in the year 2001 and the usage that year was 16,757. Brandon as a name is down to a usage of 5,075 in the year 2015. 
+
+```{python}
+# Filter only people with my name, Brandon
+my_name = df.query('name == "Brandon"')
+# my_name
+```
+
+```{python}
+# Graph for question 1. My name and usage at my birth year to historically
+fig_1 = px.line(my_name, x='year', y='Total', title='Usage of the Name Brandon')
+# Add a vertical annotation at my birth year, 2001
+fig_1.add_vline(x=2001, annotation_text="My Birth Year: 2001", annotation_position='top left')
+fig_1.show()
+```
+
+## QUESTION|TASK 2
+
+__If you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?__
+
+The highest usage of the name Brittany was in the year 1990. Most of the data falls between 1985 and 1995. If I were to talk to someone named Brittany, I would guess that they were around 35 years old. 
+
+```{python}
+# Filter only people named Brittany
+brittany_name = df.query('name == "Brittany"')
+# brittany_name
+```
+
+```{python}
+# Graph for question 2. People named Brittany
+fig_2 = px.line(brittany_name, x='year', y='Total')
+fig_2.show()
+```
+
+## QUESTION|TASK 3
+
+__Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?__
+
+These four names were used commonly in the early 1900's. Each name, except for Mary, had an increase in usage till 1955. Mary had a decrease in usage till 1936 and increased till the 1950's. After this time, all four names decreased in usage till the present day. 
+
+```{python}
+# Filter out Mary, Martha, Peter, Paul
+christian_names = df.query('name in ["Mary", "Martha", "Peter", "Paul"]')
+# Filter out years between 1920 - 2000
+christian_names = christian_names.query('year >= 1920 & year <= 2000')
+# christian_names
+```
+
+```{python}
+# Graph for question 3. Christian names from 1920 to 2000
+fig_3 = px.line(christian_names, x='year', y='Total', color='name')
+fig_3.show()
+```
+
+## QUESTION|TASK 4
+
+__Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?__
+
+The name 'Marty' had a peak usage in the year 1962. Following that, the usage decreased greatly consistantly until the year 1985. There was an increase in usage for a few years following the release of Back to the Future. After the small increase, it steadily decreased in use till the present day. 
+
+```{python}
+# Marty McFly from Back to the Future
+# First movie release date 1985
+# Second movie release date 1989
+# Third movie release date 1990
+marty_name = df.query('name == "Marty"')
+# marty_name
+```
+
+```{python}
+# Graph for question 4. Usage of the name Marty around the release of the movies 'Back to the Future'
+fig_4 = px.line(marty_name, x='year', y='Total')
+# Vertical Line for First Movie, 1985
+fig_4.add_vline(x=1985, annotation_text="First Movie Release", annotation_position='top left')
+# Vertical Line for Final Movie, 1990
+fig_4.add_vline(x=1990, annotation_text="Final Movie Release", annotation_position='top right')
+
+```

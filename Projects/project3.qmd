@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - [Finding Relationships in Baseball]"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Brandon Hagerman"
 format:
   html:
     self-contained: true
@@ -25,4 +25,128 @@ execute:
     
 ---
 
-### Paste in a template
+```{python}
+#| label: libraries
+#| include: false
+import pandas as pd 
+import numpy as np
+import sqlite3
+import plotly.express as px
+```
+
+
+## Elevator pitch
+
+There are a significant amount of baseball players that don't get to bat during games. Even fewer number that get more than 10 bats. Comparing the number of bases stolen between St. Louis and Texas shows that St. Louis had a much higher number of bases stolen which dropped over time. Texas had a small beginning number of stolen bases and raised over time. These two teams essentially traded the number of stolen bases. 
+
+```{python}
+#| label: project-data
+#| code-summary: Read and format project data
+
+sqlite_file = 'lahmansbaseballdb.sqlite'
+con = sqlite3.connect(sqlite_file)
+```
+
+## QUESTION|TASK 1
+
+Write an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.
+
+```{python}
+#| label: Q1
+#| code-summary: SQL Query for baseball players who attended BYU-Idaho
+# Include and execute your code here
+
+question_one = '''
+    SELECT Salaries.playerID, Salaries.salary, Salaries.teamID, Salaries.yearID, Schools.schoolID
+    FROM Salaries, Schools
+    ORDER BY Salaries.salary
+    '''
+table_one = pd.read_sql_query(question_one,con)
+table_one
+```
+
+## QUESTION|TASK 2
+
+A. Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.
+
+```{python}
+#| label: Q2_A
+#| code-summary: SQL Query batting average, At bat greater than 1
+# Include and execute your code here
+
+question_two_a = '''
+    SELECT playerId, yearID, H, AB, (H * 1.0) / AB AS 'battingAverage'
+    FROM Batting
+    WHERE AB > 1
+    ORDER BY battingAverage DESC, playerID
+    LIMIT 5
+    '''
+table_two_a = pd.read_sql_query(question_two_a, con)
+table_two_a
+```
+
+B. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.
+```{python}
+#| label: Q2_B
+#| code-summary: SQL Query batting average, At bat greater than 10
+# Include and execute your code here
+
+question_two_b = '''
+    SELECT playerId, yearID, H, AB, (H * 1.0) / AB AS 'battingAverage'
+    FROM Batting
+    WHERE AB > 10
+    ORDER BY battingAverage DESC, playerID
+    LIMIT 5
+    '''
+table_two_b = pd.read_sql_query(question_two_b, con)
+table_two_b
+```
+
+C. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.
+```{python}
+#| label: Q2_C
+#| code-summary: SQL Query batting average for players over entire careers. Only players with atleast 100 at bats. 
+# Include and execute your code here
+
+question_two_c = '''
+    SELECT playerID, SUM(H)
+    FROM batting
+    WHERE H > 100
+    GROUP BY playerID
+    ORDER BY H DESC
+    LIMIT 5
+    '''
+table_two_c = pd.read_sql_query(question_two_c, con)
+table_two_c
+```
+
+## QUESTION|TASK 3
+
+Pick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?
+
+```{python}
+#| label: Q3
+#| code-summary: SQL Query Number of steals per year for Texas Rangers and St. Louis Cardinals
+# Include and execute your code here
+
+question_three = '''
+    SELECT name, yearID, SB 
+    FROM Teams
+    WHERE name = 'Texas Rangers' OR name = 'St. Louis Cardinals'
+    ORDER BY yearID DESC
+    Limit 60
+    '''
+table_three = pd.read_sql_query(question_three, con)
+table_three
+```
+
+```{python}
+fig_q3 = px.bar(table_three, x='yearID', y='SB', color='name', barmode='group', title='Number of Steals Per Year', 
+                labels={
+                    "SB": "Stolen Bases",
+                    "yearID": "Year"
+})
+fig_q3.show()
+```
+
+We learn that the St. Louis Cardinals started with a significant number of steals per year. The Texas Rangers on the other hand had a much lower number of steals. Around the year 2005 both teams had a smiliar number of steals per year. Following this, the Texas Rangers had an increase in number of steals while the St. Louis Cardinals had a decrease in number of steals. Both teams seamed to swap the number of steams they had per year. 

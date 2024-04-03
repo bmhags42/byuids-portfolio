@@ -1,0 +1,159 @@
+---
+title: "Client Report - Can you predict that?"
+subtitle: "Course DS 250"
+author: "Brandon Hagerman"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    title-block-banner: true
+    toc: true
+    toc-depth: 3
+    toc-location: body
+    number-sections: false
+    html-math-method: katex
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-copy: hover
+    code-tools:
+        source: false
+        toggle: true
+        caption: See code
+execute: 
+  warning: false
+    
+---
+
+```{python}
+#| label: libraries
+#| include: false
+import pandas as pd
+import numpy as np
+import plotly.express as px
+```
+
+
+## Elevator pitch
+
+We can predict if a house was built before 1980 using a variety of variables. My model showed that the neighborhood it was built in was the mode influential factor, of the ones I used. Using a Decision Tree Classifier model I was able to accurately predict if a house was built before the year 1980 with a success rate of 93%. 
+
+```{python}
+#| label: project-data
+#| code-summary: Read and format project data
+
+import numpy as np
+import pandas as pd
+import plotly.express as px
+from sklearn import metrics
+from sklearn import tree
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+
+house_data = pd.read_csv('dwellings_denver.txt')
+house_data.head
+# house_data.columns
+# house_data.describe()
+# house_data.dtypes
+# house_data.isna().sum()
+
+# Add a column to display if the house was built before 1980. Data type is bool
+house_data['before1980'] = house_data['yrbuilt'].apply(lambda x: 1 if x < 1980 else 0)
+house_data.head()
+```
+
+__Highlight the Questions and Tasks__
+
+## QUESTION|TASK 1
+
+__Create 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.__
+
+We learn from from these graphs that there is only a noticible increase in sell price as the house is after the 2000's. This gives us some insight if the house was built before 1980. We get a similar idea from the amount of living space in the house. These 2 metrics can be used for training the model. 
+
+```{python}
+#| label: Fig_1
+#| code-summary: Create figure showing Yrbuilt vs Sell Price
+# Include and execute your code here
+
+# Show relation between sale price and year built
+fig_1 = px.scatter(house_data, x='yrbuilt', y='sprice')
+fig_1.show()
+
+```
+
+```{python}
+#| label: Fig_2
+#| code-summary: plot example
+#| fig-align: center
+#| 
+# Relation between living space and year built
+fig_2 = px.scatter(house_data, x='yrbuilt', y='livearea')
+fig_2.show()
+```
+
+## QUESTION|TASK 2
+
+__Build a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.__
+
+I decided to use a Decision Tree Model. I have used this model in the past for other projects. They are great at classifying imformation. I tried a handful of different parameters but eventually settled on the features in the features list. 
+
+```{python}
+#| label: Building the model
+#| code-summary: Read and format data
+# Include and execute your code here
+
+# Features selected to train the model.
+features = ['nbhd', 'abstrprd', 'livearea', 'finbsmnt', 'basement', 'totunits', 'stories', 'nocars', 'floorlvl', 'numbdrm']
+X = house_data[features]
+y = house_data['before1980']
+
+# Split the data into a 75 25 split. 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=30)
+
+# Initialize the decision tree
+decision_tree = tree.DecisionTreeClassifier()
+
+# Train the model to the training data
+decision_tree = decision_tree.fit(X_train, y_train)
+
+y_pred = decision_tree.predict(X_test)
+```
+
+## QUESTION|TASK 3
+
+__Justify your classification model by discussing the most important features selected by your model. This discussion should include a chart and a description of the features.__
+
+The most impactful feature used in my model was the nbhd (Neighborhood). This makes a lot of sense as most houses in the same neighborhood are built within a few years of each other. The second most impactful feature is the livable area space of the house. 
+
+```{python}
+#| label: Most important Feature
+#| code-summary: Read and format data
+# Include and execute your code here
+
+importance = decision_tree.feature_importances_
+print(importance, decision_tree.feature_names_in_)
+
+fig_3 = px.bar(x=decision_tree.feature_names_in_, y=importance)
+fig_3.show()
+
+```
+
+## QUESTION|TASK 4
+
+__Describe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.__
+
+I used the accuracy metric to test how accurate the model was. This tests the predicted values with the actual values. The second test I used was the Mean Squared Error. This measures the average error of the entire model. The lower the value, the better. This model got a value of 0.065 which is a great value. 
+
+```{python}
+#| label: Quality of Model
+#| code-summary: Read and format data
+# Include and execute your code here
+
+# Check the model accuracy
+print(metrics.accuracy_score(y_test, y_pred))
+
+# Check the Mean Squared Error test of the model. Lower score is better. 
+print(mean_squared_error(y_test, y_pred))
+
+```

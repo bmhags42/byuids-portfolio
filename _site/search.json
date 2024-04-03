@@ -161,9 +161,9 @@
   {
     "objectID": "resume.html",
     "href": "resume.html",
-    "title": "Isaac Newtons’s CV",
+    "title": "Brandon Hagerman’s Resume",
     "section": "",
-    "text": "Physicist, Mathematician, Cambridge professor.\n\nisaac@applesdofall.org | My wikipedia page\n\n\n\nStanding on the shoulders of giants\n\n\nLaws of motion, gravitation, minting coins, disliking Robert Hooke\n\n\n\nCooling, power series, optics, alchemy, planetary motions, apples.\n\n\n\n\n1654-1660 The King’s School, Grantham.\nJune 1661 - now Trinity College, Cambridge\n\nSizar\n\n1667 - death Trinity College, Cambridge\n\nFellow\n\n\n\n\n2012 President, Royal Society, London, UK\nAssociate, French Academy of Science, Paris, France\n\n\n\n\n\n\n1669 Newton Sir I, De analysi per æquationes numero terminorum infinitas.\n1669 Lectiones opticæ.\netc. etc. etc.\n\n\n\n2012 Infinitesimal calculus for solutions to physics problems, SMBC patent 001\n\n\n\n\n1600 Royal Mint, London\n\nWarden\nMinted coins\n\n1600 Lucasian professor of Mathematics, Cambridge University"
+    "text": "Computer Science student at BYU-Idaho\n\ndatascience@byui.edu | Data Science Program\n\n\n\nExpected 2025 Brigham Young University - Idaho, Rexburg, ID\n\n3.8 Major GPA\n\n\n\n\n\n\nMay 2023 - August 2023 Melaleuca, Idaho Falls, ID\n\nUpgraded Content Management System from Vue 2 to Vue 3\nDeveloped new page to help employees change product details more easily\nIntegrated Typescript for type safety and higher quality code base\n\n\n\n\nAugust 2023 - Present Melaleuca, Software Engineer I\n\nWorked with .Net for fixing bugs and creating new business features\nIntegrated Google Vision Client to AWS Pipeline for Product Recognition via Images\nWorked with Git, Azure Devops, and Postman\n\n\n\n\n\nFall 2022 Cloud Solution Society Member\n2019-2020 Missionary, Dallas, Texas"
   },
   {
     "objectID": "resume.html#currently",
@@ -175,9 +175,9 @@
   {
     "objectID": "resume.html#education",
     "href": "resume.html#education",
-    "title": "Isaac Newtons’s CV",
+    "title": "Brandon Hagerman’s Resume",
     "section": "",
-    "text": "1654-1660 The King’s School, Grantham.\nJune 1661 - now Trinity College, Cambridge\n\nSizar\n\n1667 - death Trinity College, Cambridge\n\nFellow"
+    "text": "Expected 2025 Brigham Young University - Idaho, Rexburg, ID\n\n3.8 Major GPA"
   },
   {
     "objectID": "resume.html#awards",
@@ -311,14 +311,20 @@
     "href": "projects.html",
     "title": "DS250 Projects",
     "section": "",
-    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5"
+    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5",
+    "crumbs": [
+      "DS250 Projects"
+    ]
   },
   {
     "objectID": "projects.html#repo-for-all-my-projects",
     "href": "projects.html#repo-for-all-my-projects",
     "title": "DS250 Projects",
     "section": "",
-    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5"
+    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5",
+    "crumbs": [
+      "DS250 Projects"
+    ]
   },
   {
     "objectID": "ml.html",
@@ -353,7 +359,7 @@
     "href": "Templates/DS250_Template.html",
     "title": "Client Report - [Insert Project Title]",
     "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top"
+    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "Templates/DS350_Template.html",
@@ -361,5 +367,19 @@
     "title": "Client Report - [Insert Project Title]",
     "section": "",
     "text": "TODO: Update with template from Paul\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "resume.html#related-experience",
+    "href": "resume.html#related-experience",
+    "title": "Brandon Hagerman’s Resume",
+    "section": "",
+    "text": "May 2023 - August 2023 Melaleuca, Idaho Falls, ID\n\nUpgraded Content Management System from Vue 2 to Vue 3\nDeveloped new page to help employees change product details more easily\nIntegrated Typescript for type safety and higher quality code base\n\n\n\n\nAugust 2023 - Present Melaleuca, Software Engineer I\n\nWorked with .Net for fixing bugs and creating new business features\nIntegrated Google Vision Client to AWS Pipeline for Product Recognition via Images\nWorked with Git, Azure Devops, and Postman"
+  },
+  {
+    "objectID": "resume.html#service-and-work-history",
+    "href": "resume.html#service-and-work-history",
+    "title": "Brandon Hagerman’s Resume",
+    "section": "",
+    "text": "Fall 2022 Cloud Solution Society Member\n2019-2020 Missionary, Dallas, Texas"
   }
 ]
